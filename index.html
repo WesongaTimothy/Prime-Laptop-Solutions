@@ -1,102 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Prime Laptop Solutions | HP & Dell Laptops</title>
-  <meta name="description" content="Prime Laptop Solutions – Trusted supplier of HP and Dell laptops in Kenya. Affordable prices, warranty, and after-sales support." />
-  <style>
-    body { font-family: Arial, sans-serif; margin: 0; background: #f5f7fa; color: #333; }
-    header { background: #0b3c5d; color: #fff; padding: 20px 40px; }
-    nav { display: flex; justify-content: space-between; align-items: center; }
-    nav a { color: #fff; margin-left: 20px; text-decoration: none; font-weight: bold; }
-    .hero { padding: 80px 40px; background: linear-gradient(to right, #0b3c5d, #328cc1); color: white; text-align: center; }
-    .hero h1 { font-size: 40px; }
-    .hero p { font-size: 18px; }
-    .btn { background: #f4b41a; color: #000; padding: 12px 20px; text-decoration: none; font-weight: bold; border-radius: 5px; }
-    .section { padding: 60px 40px; }
-    .section h2 { text-align: center; margin-bottom: 40px; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-    .card { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-    .card h3 { margin-top: 0; }
-    footer { background: #0b3c5d; color: #fff; text-align: center; padding: 20px; }
-    .contact { background: #e8eef3; }
-    form input, form textarea { width: 100%; padding: 10px; margin-bottom: 10px; }
-    form button { background: #0b3c5d; color: #fff; padding: 10px; border: none; cursor: pointer; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KUCCPS | KMTC Application</title>
+    <style>
+        :root {
+            --primary-navy: #2c3e50;
+            --accent-red: #a91e23;
+            --kuccps-blue: #0099ff;
+            --bg-gray: #f4f7f6;
+            --teal: #1abc9c;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: var(--bg-gray);
+            color: #333;
+        }
+
+        /* Top Header */
+        header {
+            background: white;
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px solid var(--accent-red);
+        }
+
+        .user-id {
+            background: #000;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--primary-navy);
+            display: flex;
+            padding: 0 5%;
+            overflow-x: auto;
+        }
+
+        nav a {
+            color: #bdc3c7;
+            text-decoration: none;
+            padding: 15px 20px;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        nav a.active {
+            background: white;
+            color: var(--primary-navy);
+            border-top: 3px solid var(--accent-red);
+        }
+
+        /* Main Container */
+        .container {
+            width: 90%;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h2 { color: #666; font-weight: 400; }
+
+        /* Tabs */
+        .tabs {
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+
+        .tab {
+            display: inline-block;
+            padding: 10px 20px;
+            border: 1px solid transparent;
+            cursor: pointer;
+            color: #555;
+        }
+
+        .tab.active {
+            border: 1px solid #ddd;
+            border-bottom: 2px solid var(--teal);
+            border-top: none;
+        }
+
+        /* Table Design */
+        .table-header {
+            background: var(--primary-navy);
+            color: white;
+            padding: 10px;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border: 1px solid #eee;
+        }
+
+        th { background: #fafafa; color: #777; font-weight: 600; }
+
+        /* Deadline Footer Bar */
+        .footer-bar {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: #34495e;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+
+        .timer { color: #ff4d4d; font-weight: bold; }
+
+        .btn-instruction {
+            float: right;
+            border: 1px solid var(--kuccps-blue);
+            color: var(--kuccps-blue);
+            background: transparent;
+            padding: 5px 10px;
+            font-size: 12px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 
 <header>
-  <nav>
-    <h2>Prime Laptop Solutions</h2>
-    <div>
-      <a href="#">Home</a>
-      <a href="#products">Products</a>
-      <a href="#services">Services</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
+    <div class="logo"><strong>KUCCPS</strong> Portal</div>
+    <div class="user-id">🇰🇪 202441704006002</div>
 </header>
 
-<section class="hero">
-  <h1>Reliable HP & Dell Laptops</h1>
-  <p>Affordable. Trusted. Professional IT Solutions in Kenya</p>
-  <a href="#contact" class="btn">Get a Quote</a>
-</section>
+<nav>
+    <a href="#">Dashboard</a>
+    <a href="#">Institutions</a>
+    <a href="#">KMTC Programmes</a>
+    <a href="#" class="active">Application/Revision</a>
+    <a href="#">Course Basket</a>
+</nav>
 
-<section id="products" class="section">
-  <h2>Our Products</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>HP Laptops</h3>
-      <p>EliteBook, ProBook & Pavilion series for students, professionals & businesses.</p>
+<div class="container">
+    <h2>Programme Choices</h2>
+    
+    <div class="tabs">
+        <div class="tab">APPLY NOW</div>
+        <div class="tab active">APPLICATION HISTORY</div>
+        <div class="tab">APPLICATION LOG</div>
     </div>
-    <div class="card">
-      <h3>Dell Laptops</h3>
-      <p>Latitude, Inspiron & Vostro series with performance and durability.</p>
+
+    <button class="btn-instruction">⚙ APPLICATION INSTRUCTIONS</button>
+    <p style="font-size: 13px; color: #666;">These are the courses you have applied for at every stage.</p>
+
+    <div class="table-header">
+        2025/2026 | KMTC FOURTH REVISION | DIPLOMA - LEVEL 6 APPLICATION
     </div>
-    <div class="card">
-      <h3>Refurbished Devices</h3>
-      <p>Grade A refurbished laptops with warranty and quality assurance.</p>
-    </div>
-  </div>
-</section>
+    <table>
+        <thead>
+            <tr>
+                <th>CHOICE</th>
+                <th>PROGRAMME CODE</th>
+                <th>PROGRAMME NAME</th>
+                <th>INSTITUTION</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1a</td>
+                <td>4905K08</td>
+                <td>DIPLOMA IN MEDICAL LABORATORY SCIENCES</td>
+                <td>KMTC - MACHAKOS</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>5040K07</td>
+                <td>DIPLOMA IN RADIOGRAPHY & IMAGING</td>
+                <td>KMTC - NYERI</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
-<section id="services" class="section">
-  <h2>Our Services</h2>
-  <div class="grid">
-    <div class="card">Bulk & Institutional Supply</div>
-    <div class="card">Laptop Repair & Maintenance</div>
-    <div class="card">Software Installation & Setup</div>
-    <div class="card">IT Support & Consulting</div>
-  </div>
-</section>
-
-<section id="about" class="section">
-  <h2>About Prime Laptop Solutions</h2>
-  <p style="max-width:800px;margin:auto;text-align:center;">
-    Prime Laptop Solutions is a Kenya-based technology company specializing in the supply of HP and Dell laptops. We serve individuals, SMEs, NGOs, and institutions with affordable devices, warranty assurance, and reliable after-sales support.
-  </p>
-</section>
-
-<section id="contact" class="section contact">
-  <h2>Contact Us</h2>
-  <div style="max-width:600px;margin:auto;">
-    <form>
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <input type="text" placeholder="Phone Number" required />
-      <textarea rows="4" placeholder="Your Message"></textarea>
-      <button type="submit">Send Inquiry</button>
-    </form>
-  </div>
-</section>
-
-<footer>
-  <p>© 2026 Prime Laptop Solutions. All Rights Reserved.</p>
-</footer>
+<div class="footer-bar">
+    KMTC Application deadline in: <span class="timer">06 days 08 hrs 43 mins 09 secs</span><br>
+    <small>Copyright © 2026 | <span style="color:red">KUCCPS</span> | All Rights Reserved</small>
+</div>
 
 </body>
 </html>
