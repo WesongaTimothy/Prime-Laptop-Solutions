@@ -2,169 +2,167 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>KUCCPS | KMTC Application Portal</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KUCCPS | Application Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
+            --kuccps-red: #9e0b0f;
             --nav-bg: #4c5a6d;
-            --nav-active: #ffffff;
-            --accent-red: #cc2026;
-            --header-dark: #3c4858;
-            --bg-body: #f1f3f6;
-            --border-gray: #dee2e6;
-            --text-gray: #777777;
-            --instruction-blue: #0099ff;
+            --active-red: #8b0000;
+            --text-gray: #6c757d;
+            --table-dark: #44505e;
+            --teal-accent: #00c292;
         }
 
         body {
             font-family: 'Open Sans', sans-serif;
             margin: 0;
-            background-color: var(--bg-body);
+            background-color: #f8f9fa;
             color: #333;
-            font-size: 14px;
         }
 
-        /* Top Bar */
-        .top-header {
+        /* Top Header Area */
+        .top-row {
+            display: flex;
+            height: 60px;
             background: white;
-            padding: 5px 4%;
+        }
+        .logo-section { width: 140px; padding: 5px; }
+        .red-banner {
+            flex-grow: 1;
+            background: var(--kuccps-red);
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
             align-items: center;
-            border-top: 5px solid var(--accent-red);
-        }
-
-        .user-id-box {
-            background: #000;
-            color: #fff;
-            padding: 4px 12px;
-            border-radius: 15px;
+            padding-right: 20px;
+            color: white;
             font-weight: 600;
-            font-size: 12px;
-        }
-
-        /* Navigation */
-        nav {
-            background: var(--nav-bg);
-            display: flex;
-            padding-left: 4%;
-            border-bottom: 4px solid var(--accent-red);
-        }
-
-        nav a {
-            color: #bdc3c7;
-            text-decoration: none;
-            padding: 12px 18px;
             font-size: 13px;
         }
 
-        nav a.active {
-            background: #5d6d7e;
-            color: white;
-            position: relative;
-        }
-
-        /* Main Content Area */
-        .main-container {
-            width: 92%;
-            margin: 20px auto;
-            background: white;
-            padding: 25px;
-            min-height: 500px;
-        }
-
-        h1 {
-            color: var(--text-gray);
-            font-size: 22px;
-            font-weight: 400;
-            margin-bottom: 30px;
-        }
-
-        /* Tabbed Navigation */
-        .tab-row {
-            border-bottom: 1px solid var(--border-gray);
-            margin-bottom: 25px;
+        /* Navigation Bar */
+        nav {
+            background: var(--nav-bg);
             display: flex;
+            padding-left: 20px;
+            overflow-x: auto;
+        }
+        nav a {
+            color: #d1d8e0;
+            text-decoration: none;
+            padding: 12px 15px;
+            font-size: 13px;
+            white-space: nowrap;
+        }
+        nav a.active {
+            background: var(--active-red);
+            color: white;
         }
 
-        .tab-item {
-            padding: 10px 25px;
-            color: #555;
-            cursor: pointer;
-            border: 1px solid transparent;
+        /* Sub-Header with Icons */
+        .sub-header {
+            background: #fdfdfd;
+            padding: 15px 4%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+        }
+        .title { font-size: 19px; color: var(--text-gray); }
+        .header-icons { display: flex; gap: 20px; align-items: center; }
+        .icon-box { text-align: center; color: #3498db; cursor: pointer; font-size: 11px; }
+        .basket-count {
+            background: #00bcd4;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 10px;
+            position: relative;
+            top: -10px;
+            left: -5px;
         }
 
-        .tab-item.active {
-            border: 1px solid var(--border-gray);
-            border-bottom: none;
-            border-left: 3px solid #1abc9c;
-            font-weight: 400;
+        /* Main Content */
+        .container { width: 92%; margin: 20px auto; background: white; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        
+        /* Tabs */
+        .tabs { display: flex; border-bottom: 1px solid #ddd; margin-bottom: 20px; }
+        .tab { padding: 12px 25px; font-size: 13px; color: #555; cursor: pointer; border: 1px solid transparent; }
+        .tab.active { 
+            border: 1px solid #ddd; 
+            border-bottom-color: white; 
+            border-left: 3px solid var(--teal-accent); 
+            font-weight: 400; 
         }
 
-        /* Instruction Button */
-        .btn-blue {
+        /* Instructions Button */
+        .btn-instructions {
             float: right;
+            border: 1px solid #3498db;
+            color: #3498db;
             background: white;
-            border: 1px solid var(--instruction-blue);
-            color: var(--instruction-blue);
-            padding: 6px 12px;
+            padding: 5px 12px;
             font-size: 11px;
+            border-radius: 3px;
             text-transform: uppercase;
-            border-radius: 4px;
-            font-weight: 600;
         }
 
-        /* The Application Table Header */
-        .app-header {
-            background: var(--header-dark);
+        .helper-text { font-size: 11px; color: #00bcd4; font-weight: bold; margin-top: 30px; }
+
+        /* Table Styles */
+        .section-bar {
+            background: var(--table-dark);
             color: white;
             padding: 10px 15px;
             font-size: 12px;
             font-weight: 600;
             display: flex;
             justify-content: space-between;
-            margin-top: 15px;
+            margin-top: 5px;
         }
+        table { width: 100%; border-collapse: collapse; margin-top: 0; }
+        th, td { border: 1px solid #f1f1f1; padding: 10px; font-size: 12px; text-align: left; }
+        th { background: #fafafa; color: #888; text-transform: uppercase; }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: #fff;
-        }
-
-        th, td {
-            border: 1px solid #f1f1f1;
-            padding: 12px;
-            text-align: left;
-            font-size: 12px;
-        }
-
-        th {
-            background: #fbfbfb;
-            color: #888;
-            text-transform: uppercase;
-        }
-
-        /* Deadline Footer */
-        .deadline-footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            background: #44505e;
-            color: #fff;
+        /* Footer Box */
+        .footer-deadline {
+            background: var(--table-dark);
+            color: white;
             text-align: center;
-            padding: 12px 0;
+            width: 450px;
+            margin: 40px auto 20px;
+            padding: 15px;
             font-size: 12px;
+            line-height: 1.6;
         }
+        .deadline-time { color: #ff5252; font-weight: bold; }
 
-        .timer-red { color: #ff5e5e; font-weight: bold; }
+        /* Floating Chat Button */
+        .chat-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #8b0000;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
     </style>
 </head>
 <body>
 
-<div class="top-header">
-    <img src="https://via.placeholder.com/150x40?text=KUCCPS+LOGO" alt="Logo">
-    <div class="user-id-box">🇰🇪 202441704006002</div>
+<div class="top-row">
+    <div class="logo-section">
+        <img src="https://via.placeholder.com/120x50?text=LOGO" alt="Logo">
+    </div>
+    <div class="red-banner">
+        <span>🇰🇪 202441704006002</span>
+    </div>
 </div>
 
 <nav>
@@ -172,25 +170,34 @@
     <a href="#">Institutions</a>
     <a href="#">All Programmes</a>
     <a href="#">KMTC Programmes</a>
+    <a href="#">OUK</a>
     <a href="#" class="active">Application/Revision</a>
     <a href="#">Course Basket</a>
+    <a href="#">Transfer Application</a>
+    <a href="#">Downloads</a>
 </nav>
 
-<div class="main-container">
-    <h1>Programme Choices</h1>
+<div class="sub-header">
+    <div class="title">Programme Choices</div>
+    <div class="header-icons">
+        <div class="icon-box">⚙<br>Settings</div>
+        <div class="icon-box">🛒<span class="basket-count">0</span><br>Basket</div>
+    </div>
+</div>
 
-    <div class="tab-row">
-        <div class="tab-item">APPLY NOW</div>
-        <div class="tab-item active">APPLICATION HISTORY</div>
-        <div class="tab-item">APPLICATION LOG</div>
+<div class="container">
+    <div class="tabs">
+        <div class="tab">APPLY NOW</div>
+        <div class="tab active">APPLICATION HISTORY</div>
+        <div class="tab">APPLICATION LOG</div>
     </div>
 
-    <button class="btn-blue">⦿ APPLICATION INSTRUCTIONS</button>
-    <p style="font-size: 13px; color: #666; width: 80%;">These are the courses you have applied for at every stage. Please note that the latest application is the one that will be considered for processing.</p>
+    <button class="btn-instructions">⦿ APPLICATION INSTRUCTIONS</button>
+    <p style="font-size: 13px; color: #555; width: 80%;">These are the courses you have applied for at every stage. Please note that the latest application is the one that will be considered for processing.</p>
     
-    <p style="font-size: 11px; font-weight: 600; color: #00bcd4;">APPLICATIONS – <span style="font-weight: 400; color: #888;">CLICK ON THE HEADERS TO EXPAND/COLLAPSE THE CONTENT</span></p>
+    <div class="helper-text">APPLICATIONS – <span style="font-weight: normal; color: #888;">CLICK ON THE HEADERS TO EXPAND/COLLAPSE THE CONTENT</span></div>
 
-    <div class="app-header">
+    <div class="section-bar">
         <span>2025/2026 | KMTC FOURTH REVISION | DIPLOMA - LEVEL 6 APPLICATION</span>
         <span>▲</span>
     </div>
@@ -220,10 +227,14 @@
     </table>
 </div>
 
-<div class="deadline-footer">
-    KMTC Application deadline in: <span class="timer-red">06 days 08 hrs 43 mins 09 secs</span><br>
+<div class="footer-deadline">
+    KMTC Application deadline in: <span class="deadline-time">06 days 08 hrs 43 mins 09 secs</span><br>
     Transfer deadline in:<br>
-    Copyright © 2026 | <span style="color:red">KUCCPS</span> | All Rights Reserved | ISO 9001:2015 Certified
+    Copyright © 2026 | <span style="color: #ff5252;">KUCCPS</span> | All Rights Reserved | ISO 9001:2015 Certified
+</div>
+
+<div class="chat-btn">
+    <span style="color: white; font-size: 24px;">💬</span>
 </div>
 
 </body>
