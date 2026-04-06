@@ -3,239 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KUCCPS | Application Portal</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Prime Tech Solutions | Kenya's Premier IT Partner</title>
+    <meta name="google-site-verification" content="PYrPNpDG1KkS7aDpoSkr-8q0ZV7kH_efosgQuHAAL4I"/>
+    <meta name="keywords" content="Prime Tech Solutions, laptops Kenya, desktops Kenya, IT services Kenya">
+    <meta name="author" content="Timothy Wesonga">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <style>
-        :root {
-            --kuccps-red: #9e0b0f;
-            --nav-bg: #4c5a6d;
-            --active-red: #8b0000;
-            --text-gray: #6c757d;
-            --table-dark: #44505e;
-            --teal-accent: #00c292;
-        }
-
-        body {
-            font-family: 'Open Sans', sans-serif;
+        /* 1. RESET & BASE STYLES */
+        body, html {
             margin: 0;
-            background-color: #f8f9fa;
-            color: #333;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
         }
 
-        /* Top Header Area */
-        .top-row {
-            display: flex;
-            height: 60px;
-            background: white;
-        }
-        .logo-section { width: 140px; padding: 5px; }
-        .red-banner {
-            flex-grow: 1;
-            background: var(--kuccps-red);
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            padding-right: 20px;
-            color: white;
-            font-weight: 600;
-            font-size: 13px;
-        }
-
-        /* Navigation Bar */
-        nav {
-            background: var(--nav-bg);
-            display: flex;
-            padding-left: 20px;
-            overflow-x: auto;
-        }
-        nav a {
-            color: #d1d8e0;
-            text-decoration: none;
-            padding: 12px 15px;
-            font-size: 13px;
-            white-space: nowrap;
-        }
-        nav a.active {
-            background: var(--active-red);
-            color: white;
-        }
-
-        /* Sub-Header with Icons */
-        .sub-header {
-            background: #fdfdfd;
-            padding: 15px 4%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #eee;
-        }
-        .title { font-size: 19px; color: var(--text-gray); }
-        .header-icons { display: flex; gap: 20px; align-items: center; }
-        .icon-box { text-align: center; color: #3498db; cursor: pointer; font-size: 11px; }
-        .basket-count {
-            background: #00bcd4;
-            color: white;
-            border-radius: 50%;
-            padding: 2px 6px;
-            font-size: 10px;
-            position: relative;
-            top: -10px;
-            left: -5px;
-        }
-
-        /* Main Content */
-        .container { width: 92%; margin: 20px auto; background: white; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-        
-        /* Tabs */
-        .tabs { display: flex; border-bottom: 1px solid #ddd; margin-bottom: 20px; }
-        .tab { padding: 12px 25px; font-size: 13px; color: #555; cursor: pointer; border: 1px solid transparent; }
-        .tab.active { 
-            border: 1px solid #ddd; 
-            border-bottom-color: white; 
-            border-left: 3px solid var(--teal-accent); 
-            font-weight: 400; 
-        }
-
-        /* Instructions Button */
-        .btn-instructions {
-            float: right;
-            border: 1px solid #3498db;
-            color: #3498db;
-            background: white;
-            padding: 5px 12px;
-            font-size: 11px;
-            border-radius: 3px;
-            text-transform: uppercase;
-        }
-
-        .helper-text { font-size: 11px; color: #00bcd4; font-weight: bold; margin-top: 30px; }
-
-        /* Table Styles */
-        .section-bar {
-            background: var(--table-dark);
-            color: white;
-            padding: 10px 15px;
-            font-size: 12px;
-            font-weight: 600;
-            display: flex;
-            justify-content: space-between;
-            margin-top: 5px;
-        }
-        table { width: 100%; border-collapse: collapse; margin-top: 0; }
-        th, td { border: 1px solid #f1f1f1; padding: 10px; font-size: 12px; text-align: left; }
-        th { background: #fafafa; color: #888; text-transform: uppercase; }
-
-        /* Footer Box */
-        .footer-deadline {
-            background: var(--table-dark);
-            color: white;
-            text-align: center;
-            width: 450px;
-            margin: 40px auto 20px;
-            padding: 15px;
-            font-size: 12px;
-            line-height: 1.6;
-        }
-        .deadline-time { color: #ff5252; font-weight: bold; }
-
-        /* Floating Chat Button */
-        .chat-btn {
+        /* 2. PRELOADER OVERLAY */
+        #loader-wrapper {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #8b0000;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #0b0b0b; /* Dark tech theme */
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            z-index: 10000;
+            transition: opacity 0.8s ease, visibility 0.8s;
+        }
+
+        #loader-content {
+            text-align: center;
+        }
+
+        #loader-logo {
+            width: 150px; /* Adjust based on L1.jpeg size */
+            height: auto;
+            margin-bottom: 25px;
+            filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        /* 3. LOADING BAR ANIMATION */
+        .loader-bar {
+            width: 200px;
+            height: 4px;
+            background: #222;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .loader-progress {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #00c6ff, #0072ff); /* Blue tech gradient */
+            animation: fillProgress 2s forwards;
+        }
+
+        /* KEYFRAMES */
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.05); opacity: 1; }
+        }
+
+        @keyframes fillProgress {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+
+        /* Hiding class triggered by JS */
+        .loaded #loader-wrapper {
+            opacity: 0;
+            visibility: hidden;
         }
     </style>
 </head>
+
 <body>
 
-<div class="top-row">
-    <div class="logo-section">
-        <img src="https://via.placeholder.com/120x50?text=LOGO" alt="Logo">
-    </div>
-    <div class="red-banner">
-        <span>🇰🇪 202441704006002</span>
-    </div>
-</div>
-
-<nav>
-    <a href="#">Dashboard</a>
-    <a href="#">Institutions</a>
-    <a href="#">All Programmes</a>
-    <a href="#">KMTC Programmes</a>
-    <a href="#">OUK</a>
-    <a href="#" class="active">Application/Revision</a>
-    <a href="#">Course Basket</a>
-    <a href="#">Transfer Application</a>
-    <a href="#">Downloads</a>
-</nav>
-
-<div class="sub-header">
-    <div class="title">Programme Choices</div>
-    <div class="header-icons">
-        <div class="icon-box">⚙<br>Settings</div>
-        <div class="icon-box">🛒<span class="basket-count">0</span><br>Basket</div>
-    </div>
-</div>
-
-<div class="container">
-    <div class="tabs">
-        <div class="tab">APPLY NOW</div>
-        <div class="tab active">APPLICATION HISTORY</div>
-        <div class="tab">APPLICATION LOG</div>
+    <div id="loader-wrapper">
+        <div id="loader-content">
+            <img src="L1.jpeg" alt="Prime Tech Solutions" id="loader-logo">
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+        </div>
     </div>
 
-    <button class="btn-instructions">⦿ APPLICATION INSTRUCTIONS</button>
-    <p style="font-size: 13px; color: #555; width: 80%;">These are the courses you have applied for at every stage. Please note that the latest application is the one that will be considered for processing.</p>
-    
-    <div class="helper-text">APPLICATIONS – <span style="font-weight: normal; color: #888;">CLICK ON THE HEADERS TO EXPAND/COLLAPSE THE CONTENT</span></div>
+    <header style="padding: 20px; text-align: center; background: #fff;">
+        <h1>Welcome to Prime Tech Solutions</h1>
+        <p>Kenya's Premier IT Partner</p>
+    </header>
 
-    <div class="section-bar">
-        <span>2025/2026 | KMTC FOURTH REVISION | DIPLOMA - LEVEL 6 APPLICATION</span>
-        <span>▲</span>
-    </div>
-    <table>
-        <thead>
-            <tr>
-                <th>CHOICE</th>
-                <th>PROGRAMME CODE</th>
-                <th>PROGRAMME NAME</th>
-                <th>INSTITUTION</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1a</td>
-                <td>4905K08</td>
-                <td>DIPLOMA IN MEDICAL LABORATORY SCIENCES</td>
-                <td>KMTC - MACHAKOS</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>5040K07</td>
-                <td>DIPLOMA IN RADIOGRAPHY & IMAGING</td>
-                <td>KMTC - NYERI</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-
-<div class="footer-deadline">
-    KMTC Application deadline in: <span class="deadline-time">06 days 08 hrs 43 mins 09 secs</span><br>
-    Transfer deadline in:<br>
-    Copyright © 2026 | <span style="color: #ff5252;">KUCCPS</span> | All Rights Reserved | ISO 9001:2015 Certified
-</div>
-
-<div class="chat-btn">
-    <span style="color: white; font-size: 24px;">💬</span>
-</div>
+    <script>
+        window.addEventListener("load", function() {
+            // Delay of 1.5 seconds to allow the animation to play
+            setTimeout(function() {
+                document.body.classList.add("loaded");
+            }, 1500); 
+        });
+    </script>
 
 </body>
 </html>
